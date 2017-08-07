@@ -10,6 +10,8 @@ import dagger.Module;
 import dagger.Provides;
 import de.proximity.bakeme.BuildConfig;
 import de.proximity.bakeme.data.ApiClient;
+import de.proximity.bakeme.data.RecipeTask;
+import de.proximity.bakeme.data.RecipeTaskRetrofit;
 import de.proximity.bakeme.ui.recipelist.RecipeListViewModel;
 import okhttp3.OkHttpClient;
 import okhttp3.logging.HttpLoggingInterceptor;
@@ -40,8 +42,14 @@ public class AppModule {
 
     @Singleton
     @Provides
-    RecipeListViewModel provideRecipeListViewModel() {
-        return new RecipeListViewModel();
+    RecipeListViewModel provideRecipeListViewModel(RecipeTask task) {
+        return new RecipeListViewModel(task);
+    }
+
+    @Singleton
+    @Provides
+    RecipeTask provideRecipeTask(ApiClient client) {
+        return new RecipeTaskRetrofit(client);
     }
 
     private void enableLogging(OkHttpClient.Builder httpClient) {

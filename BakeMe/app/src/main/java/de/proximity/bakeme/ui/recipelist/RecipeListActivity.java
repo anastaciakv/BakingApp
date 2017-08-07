@@ -13,6 +13,7 @@ import de.proximity.bakeme.di.Injectable;
 public class RecipeListActivity extends AppCompatActivity implements Injectable {
     @Inject
     RecipeListViewModel viewModel;
+
     private ActivityRecipeListBinding binding;
 
 

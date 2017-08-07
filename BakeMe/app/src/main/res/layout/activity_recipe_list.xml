@@ -19,7 +19,8 @@
             android:id="@+id/rvRecipeList"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            app:layoutManager="LinearLayoutManager" />
+            app:layoutManager="LinearLayoutManager"
+            tools:listitem="@layout/recipe_item" />
 
         <ProgressBar
             android:id="@+id/progress"

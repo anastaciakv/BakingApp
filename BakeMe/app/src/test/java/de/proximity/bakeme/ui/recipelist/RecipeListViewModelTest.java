@@ -67,7 +67,7 @@ public class RecipeListViewModelTest {
         verify(task).fetchRecipes(recipeTaskCaptor.capture());
         List<Recipe> expectedRecipes = new ArrayList<>();
         recipeTaskCaptor.getValue().onRecipesFetched(expectedRecipes);
-        assertEquals(expectedRecipes,model.recipesList.get());
+        assertEquals(expectedRecipes, model.recipesList.get());
     }
 
 }

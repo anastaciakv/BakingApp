@@ -13,7 +13,13 @@
     <FrameLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
+        android:background="@drawable/bg"
         tools:context="de.proximity.bakeme.ui.recipelist.RecipeListActivity">
+
+        <ImageView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:src="@drawable/torte" />
 
         <android.support.v7.widget.RecyclerView
             android:id="@+id/rvRecipeList"

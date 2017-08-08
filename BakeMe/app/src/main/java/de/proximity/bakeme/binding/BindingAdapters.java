@@ -16,6 +16,7 @@ public class BindingAdapters {
 
     @BindingAdapter("imageUrl")
     public static void bindImage(ImageView imageView, String url) {
+        if (url == null || url.isEmpty()) return;
         Picasso.with(imageView.getContext())
                 .load(url)
                 .error(android.R.drawable.stat_notify_error)

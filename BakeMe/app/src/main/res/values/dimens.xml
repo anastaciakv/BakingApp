@@ -3,4 +3,6 @@
     <dimen name="recipe_label_size">26sp</dimen>
     <dimen name="shadowDx">2dp</dimen>
     <dimen name="recipe_label_margin">8dp</dimen>
+    <dimen name="title_size">20sp</dimen>
+    <dimen name="sub_title_text_size">18sp</dimen>
 </resources>

@@ -1,7 +1,9 @@
 package de.proximity.bakeme.items;
 
+import org.parceler.Parcel;
 
-class Step {
+@Parcel
+public class Step {
     public int id;
     public String shortDescription;
     public String description;

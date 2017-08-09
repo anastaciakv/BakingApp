@@ -2,6 +2,8 @@ package de.proximity.bakeme.di;
 
 import dagger.Module;
 import dagger.android.ContributesAndroidInjector;
+import de.proximity.bakeme.ui.recipedetails.RecipeDetailsActivity;
+import de.proximity.bakeme.ui.recipedetails.StepListFragment;
 import de.proximity.bakeme.ui.recipelist.RecipeListActivity;
 
 
@@ -10,5 +12,9 @@ public abstract class ScreenModule {
     @ContributesAndroidInjector
     abstract RecipeListActivity contributeRecipeListActivity();
 
+    @ContributesAndroidInjector
+    abstract RecipeDetailsActivity contributeRecipeDetailsActivity();
 
+    @ContributesAndroidInjector
+    abstract StepListFragment contributeStepListFragment();
 }

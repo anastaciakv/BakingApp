@@ -12,6 +12,7 @@ import de.proximity.bakeme.BuildConfig;
 import de.proximity.bakeme.data.ApiClient;
 import de.proximity.bakeme.data.RecipeTask;
 import de.proximity.bakeme.data.RecipeTaskRetrofit;
+import de.proximity.bakeme.ui.recipedetails.RecipeDetailsViewModel;
 import de.proximity.bakeme.ui.recipelist.RecipeListViewModel;
 import okhttp3.OkHttpClient;
 import okhttp3.logging.HttpLoggingInterceptor;
@@ -44,6 +45,12 @@ public class AppModule {
     @Provides
     RecipeListViewModel provideRecipeListViewModel(RecipeTask task) {
         return new RecipeListViewModel(task);
+    }
+
+    @Singleton
+    @Provides
+    RecipeDetailsViewModel provideRecipeDetailsViewModel() {
+        return new RecipeDetailsViewModel();
     }
 
     @Singleton

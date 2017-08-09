@@ -2,6 +2,8 @@ package de.proximity.bakeme.ui.recipelist;
 
 import org.junit.Before;
 import org.junit.Test;
+import org.mockito.Mock;
+import org.mockito.MockitoAnnotations;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -12,10 +14,13 @@ import static junit.framework.Assert.assertEquals;
 
 public class RecipeAdapterTest {
     RecipeAdapter adapter;
+    @Mock
+    RecipeAdapter.RecipeClickCallback callback;
 
     @Before
     public void setUp() throws Exception {
-        adapter = new RecipeAdapter();
+        MockitoAnnotations.initMocks(this);
+        adapter = new RecipeAdapter(callback);
     }
 
     @Test

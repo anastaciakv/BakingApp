@@ -1,0 +1,53 @@
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="model"
+            type="de.proximity.bakeme.ui.recipedetails.RecipeDetailsViewModel" />
+    </data>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@drawable/bg"
+        android:orientation="vertical"
+
+        tools:context="de.proximity.bakeme.ui.recipedetails.StepListFragment">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/title_bg"
+            android:padding="@dimen/recipe_label_margin"
+            android:text="@string/lbl_ingredients"
+            android:textSize="@dimen/title_size" />
+
+        <TextView
+            android:id="@+id/tvIngredients"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="@dimen/recipe_label_margin"
+            android:text="@{model.getIngredients}"
+            android:textSize="@dimen/sub_title_text_size"
+            tools:text="2.0 CUP Graham Cracker crumbs\n1.0 CUP heavy cream" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/title_bg"
+            android:padding="@dimen/recipe_label_margin"
+            android:text="@string/lbl_steps"
+            android:textSize="@dimen/title_size" />
+
+        <android.support.v7.widget.RecyclerView
+            android:id="@+id/rvStepList"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:layoutManager="LinearLayoutManager"
+            tools:listitem="@layout/step_item" />
+
+    </LinearLayout>
+</layout>

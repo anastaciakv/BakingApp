@@ -34,12 +34,19 @@ public class StepListFragment extends Fragment implements Injectable {
         binding.rvStepList.setHasFixedSize(true);
         binding.rvStepList.setAdapter(adapter);
         binding.setModel(model);
+        binding.tvIngredientsLabel.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                model.setShowIngredients(binding.cardView.getVisibility() == View.GONE);
+            }
+        });
+
     }
 
     @Override
-    public void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-
+    public void onResume() {
+        super.onResume();
+        model.setShowIngredients(true);
     }
 
     @Override

@@ -40,4 +40,5 @@ ext {
     picassoVersion = '2.5.2'
     timberVersion = '4.5.1'
     parcelerVersion = '1.1.6'
+    exoplayerVersion = 'r2.2.0'
 }

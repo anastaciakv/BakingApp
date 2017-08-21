@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="recipe_label_size">32sp</dimen>
+    <dimen name="shadowDx">2dp</dimen>
+    <dimen name="recipe_label_margin">24dp</dimen>
+    <dimen name="title_size">22sp</dimen>
+    <dimen name="sub_title_text_size">26sp</dimen>
+</resources>

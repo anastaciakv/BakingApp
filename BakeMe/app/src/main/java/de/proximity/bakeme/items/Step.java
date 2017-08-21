@@ -9,4 +9,8 @@ public class Step {
     public String description;
     public String videoURL;
     public String thumbnailURL;
+
+    public boolean hasVideo() {
+        return videoURL != null && !videoURL.isEmpty();
+    }
 }

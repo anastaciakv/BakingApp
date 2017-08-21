@@ -46,11 +46,11 @@ public class RecipeDetailsActivity extends AppCompatActivity implements Injectab
     public void onStepClick(Step step) {
         if (isTwoPane) {
             FragmentManager manager = getSupportFragmentManager();
-            StepFragment stepFragment = StepFragment.newInstance(step.shortDescription);
+            StepFragment stepFragment = StepFragment.newInstance(step);
             manager.beginTransaction().replace(R.id.container, stepFragment).commit();
         } else {
             FragmentManager manager = getSupportFragmentManager();
-            StepFragment stepFragment = StepFragment.newInstance(step.shortDescription);
+            StepFragment stepFragment = StepFragment.newInstance(step);
             manager.beginTransaction().replace(R.id.masterListContainer, stepFragment).addToBackStack(null).commit();
         }
     }

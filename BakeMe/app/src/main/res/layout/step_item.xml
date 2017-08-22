@@ -10,11 +10,12 @@
     </data>
 
     <TextView
+        android:id="@+id/tvShortDescription"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:padding="8dp"
+        android:padding="@dimen/step_item_margin"
         android:text="@{step.shortDescription}"
-        android:textSize="@dimen/sub_title_text_size"
+        android:textSize="@dimen/ingredients_text_size"
         tools:text="Step short description">
 
     </TextView>

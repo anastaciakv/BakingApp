@@ -3,7 +3,9 @@ package de.proximity.bakeme.ui.recipedetails;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
+import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
+import android.support.v4.app.FragmentTransaction;
 import android.support.v7.app.AppCompatActivity;
 
 import org.parceler.Parcels;
@@ -33,6 +35,8 @@ public class RecipeDetailsActivity extends AppCompatActivity implements Injectab
         }
         if (findViewById(R.id.container) != null) {
             isTwoPane = true;
+        } else {
+            changeFragment(R.id.masterListContainer, new StepListFragment(), true, false);
         }
     }
 
@@ -45,14 +49,23 @@ public class RecipeDetailsActivity extends AppCompatActivity implements Injectab
     @Override
     public void onStepClick(Step step) {
         if (isTwoPane) {
-            FragmentManager manager = getSupportFragmentManager();
-            StepFragment stepFragment = StepFragment.newInstance(step);
-            manager.beginTransaction().replace(R.id.container, stepFragment).commit();
+            changeFragment(R.id.container, StepFragment.newInstance(step), false, false);
         } else {
-            FragmentManager manager = getSupportFragmentManager();
-            StepFragment stepFragment = StepFragment.newInstance(step);
-            manager.beginTransaction().replace(R.id.masterListContainer, stepFragment).addToBackStack(null).commit();
+            changeFragment(R.id.masterListContainer, StepFragment.newInstance(step), false, true);
         }
+    }
+
+    private void changeFragment(int containerId, Fragment fragment, boolean add, boolean addToBackStack) {
+        FragmentManager manager = getSupportFragmentManager();
+        FragmentTransaction tr = manager.beginTransaction();
+        if (add) {
+            tr.add(containerId, fragment);
+        } else {
+            tr.replace(containerId, fragment);
+        }
+        if (addToBackStack)
+            tr.addToBackStack(null);
+        tr.commit();
     }
 
 }

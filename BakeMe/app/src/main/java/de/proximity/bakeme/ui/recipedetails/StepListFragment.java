@@ -40,7 +40,6 @@ public class StepListFragment extends Fragment implements Injectable {
                 model.setShowIngredients(binding.cardView.getVisibility() == View.GONE);
             }
         });
-
     }
 
     @Override

@@ -10,59 +10,64 @@
             type="de.proximity.bakeme.ui.recipedetails.RecipeDetailsViewModel" />
     </data>
 
-    <LinearLayout
+    <ScrollView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:background="@drawable/bg"
-        android:orientation="vertical"
+        android:background="@drawable/bg">
 
-        tools:context="de.proximity.bakeme.ui.recipedetails.StepListFragment">
-
-        <TextView
-            android:id="@+id/tvIngredientsLabel"
+        <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:background="@color/title_bg"
-            android:drawableEnd="@{model.showIngredients ? @drawable/arrow_up : @drawable/arrow_down}"
-            android:drawableRight="@{model.showIngredients ? @drawable/arrow_up : @drawable/arrow_down}"
-            android:padding="@dimen/recipe_label_margin"
-            android:text="@string/lbl_ingredients"
-            android:textSize="@dimen/title_size" />
 
-        <android.support.v7.widget.CardView
-            android:id="@+id/card_view"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            android:layout_margin="8dp"
-            app:fadeVisibleGone="@{model.showIngredients}"
-            card_view:cardCornerRadius="4dp">
+            android:orientation="vertical"
+            tools:context="de.proximity.bakeme.ui.recipedetails.StepListFragment">
 
             <TextView
-                android:id="@+id/tvIngredients"
+                android:id="@+id/tvIngredientsLabel"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:background="@color/title_bg"
+                android:drawableEnd="@{model.showIngredients ? @drawable/arrow_up : @drawable/arrow_down}"
+                android:drawableRight="@{model.showIngredients ? @drawable/arrow_up : @drawable/arrow_down}"
                 android:padding="@dimen/recipe_label_margin"
-                android:text="@{model.getIngredients}"
-                android:textSize="@dimen/sub_title_text_size"
-                tools:text="2.0 CUP Graham Cracker crumbs\n1.0 CUP heavy cream" />
+                android:text="@string/lbl_ingredients"
+                android:textSize="@dimen/sub_title_lbl_size" />
 
-        </android.support.v7.widget.CardView>
+            <android.support.v7.widget.CardView
+                android:id="@+id/card_view"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_margin="@dimen/ingredients_card_margin"
+                app:fadeVisibleGone="@{model.showIngredients}"
+                card_view:cardCornerRadius="4dp">
 
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:background="@color/title_bg"
-            android:padding="@dimen/recipe_label_margin"
-            android:text="@string/lbl_steps"
-            android:textSize="@dimen/title_size" />
+                <TextView
+                    android:id="@+id/tvIngredients"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:padding="@dimen/recipe_label_margin"
+                    android:text="@{model.getIngredients}"
+                    android:textSize="@dimen/ingredients_text_size"
+                    tools:text="2.0 CUP Graham Cracker crumbs\n1.0 CUP heavy cream" />
 
-        <android.support.v7.widget.RecyclerView
-            android:id="@+id/rvStepList"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            app:layoutManager="LinearLayoutManager"
-            tools:listitem="@layout/step_item" />
+            </android.support.v7.widget.CardView>
 
-    </LinearLayout>
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@color/title_bg"
+                android:padding="@dimen/recipe_label_margin"
+                android:text="@string/lbl_steps"
+                android:textSize="@dimen/sub_title_lbl_size" />
+
+            <android.support.v7.widget.RecyclerView
+                android:id="@+id/rvStepList"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:layoutManager="LinearLayoutManager"
+                tools:listitem="@layout/step_item" />
+
+        </LinearLayout>
+    </ScrollView>
 </layout>

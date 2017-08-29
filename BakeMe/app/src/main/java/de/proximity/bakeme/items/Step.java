@@ -2,8 +2,12 @@ package de.proximity.bakeme.items;
 
 import org.parceler.Parcel;
 
+import io.realm.RealmObject;
+import io.realm.annotations.PrimaryKey;
+
 @Parcel
-public class Step {
+public class Step extends RealmObject {
+    @PrimaryKey
     public int id;
     public String shortDescription;
     public String description;

@@ -2,16 +2,25 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@drawable/widget_bg"
+    android:gravity="center"
     android:padding="@dimen/widget_margin"
     tools:background="@color/colorPrimary">
 
     <TextView
-        android:id="@+id/appwidget_text"
+        android:id="@+id/widget_recipe_title"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_centerHorizontal="true"
-        android:layout_centerVertical="true"
-        android:background="@drawable/widget_bg"
+        android:padding="8dp"
+        android:textSize="16sp"
+        android:textStyle="bold"
+        tools:text="Title" />
+
+    <TextView
+        android:id="@+id/widget_recipe_ingredients"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/widget_recipe_title"
         android:contentDescription="@string/appwidget_content_description"
         android:padding="8dp"
         android:textColor="@color/secondary_text"

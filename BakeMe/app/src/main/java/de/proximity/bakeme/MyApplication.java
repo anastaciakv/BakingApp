@@ -12,7 +12,6 @@ import dagger.android.DispatchingAndroidInjector;
 import dagger.android.HasActivityInjector;
 import dagger.android.support.HasSupportFragmentInjector;
 import de.proximity.bakeme.di.AppInjector;
-import io.realm.Realm;
 import timber.log.Timber;
 
 public class MyApplication extends Application implements HasActivityInjector, HasSupportFragmentInjector {
@@ -26,7 +25,6 @@ public class MyApplication extends Application implements HasActivityInjector, H
         super.onCreate();
         initTimber();
         AppInjector.init(this);
-        Realm.init(this);
     }
 
     private void initTimber() {

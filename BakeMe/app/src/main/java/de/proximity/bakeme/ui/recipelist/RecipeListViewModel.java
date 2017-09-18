@@ -24,6 +24,14 @@ public class RecipeListViewModel {
         fetchRecipes();
     }
 
+    public void onResume() {
+        if (recipesList.get() == null) {
+            fetchRecipes();
+        }else {
+            recipesList.notifyChange();
+        }
+    }
+
     private void fetchRecipes() {
         task.fetchRecipes(getRecipeTaskCallback());
     }

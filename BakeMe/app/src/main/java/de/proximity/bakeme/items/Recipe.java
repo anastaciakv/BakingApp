@@ -2,23 +2,27 @@ package de.proximity.bakeme.items;
 
 
 import org.parceler.Parcel;
-import org.parceler.ParcelPropertyConverter;
 
-import de.proximity.bakeme.utils.RealmListIngredientParcelConverter;
-import de.proximity.bakeme.utils.RealmListStepParcelConverter;
-import io.realm.RealmList;
-import io.realm.RealmObject;
-import io.realm.annotations.PrimaryKey;
+import java.util.List;
 
-@Parcel()
-public class Recipe extends RealmObject {
-    @PrimaryKey
+@Parcel
+public class Recipe {
     public int id;
     public String name;
-    @ParcelPropertyConverter(RealmListIngredientParcelConverter.class)
-    public RealmList<Ingredient> ingredients;
-    @ParcelPropertyConverter(RealmListStepParcelConverter.class)
-    public RealmList<Step> steps;
+    public List<Ingredient> ingredients;
+    public List<Step> steps;
     public int servings;
     public String image;
+
+    public String getIngredientsAsString() {
+        StringBuilder builder = new StringBuilder();
+        for (Ingredient i : ingredients) {
+            builder.append(i.getQuantity()).append(" ").append(i.measure).append(" ").append(i.ingredient).append("\n");
+        }
+        int last = builder.lastIndexOf("\n");
+        if (last >= 0) {
+            builder.delete(last, builder.length());
+        }
+        return builder.toString();
+    }
 }

@@ -8,6 +8,7 @@
     <dimen name="sub_title_text_size">26sp</dimen>
     <dimen name="video_height">450dp</dimen>
     <dimen name="recipe_title_size">30sp</dimen>
+    <dimen name="widget_config_info_lbl_size">20sp</dimen>
     <dimen name="ingredients_card_margin">24dp</dimen>
     <dimen name="step_item_margin">24dp</dimen>
 </resources>

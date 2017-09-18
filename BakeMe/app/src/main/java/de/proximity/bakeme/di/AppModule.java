@@ -14,6 +14,7 @@ import de.proximity.bakeme.data.RecipeTask;
 import de.proximity.bakeme.data.RecipeTaskRetrofit;
 import de.proximity.bakeme.ui.recipedetails.RecipeDetailsViewModel;
 import de.proximity.bakeme.ui.recipelist.RecipeListViewModel;
+import de.proximity.bakeme.widget.WidgetConfigViewModel;
 import okhttp3.OkHttpClient;
 import okhttp3.logging.HttpLoggingInterceptor;
 import retrofit2.Retrofit;
@@ -45,6 +46,12 @@ public class AppModule {
     @Provides
     RecipeListViewModel provideRecipeListViewModel(RecipeTask task) {
         return new RecipeListViewModel(task);
+    }
+
+    @Singleton
+    @Provides
+    WidgetConfigViewModel provideWidgetConfigViewModel(RecipeTask task) {
+        return new WidgetConfigViewModel(task);
     }
 
     @Singleton

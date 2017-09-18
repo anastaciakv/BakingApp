@@ -31,7 +31,7 @@
         </receiver>
 
         <activity
-            android:name=".widget.WidgetConfigurationActivity"
+            android:name=".widget.WidgetConfigActivity"
             android:label="@string/title_activity_widget_configuration"
             android:theme="@style/AppTheme">
             <intent-filter>

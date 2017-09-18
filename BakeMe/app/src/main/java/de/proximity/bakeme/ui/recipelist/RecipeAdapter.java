@@ -54,7 +54,9 @@ public class RecipeAdapter extends RecyclerView.Adapter<RecipeAdapter.ViewHolder
 
     public void update(List<Recipe> items) {
         if (items == null) return;
-        recipes = items;
+        recipes.clear();
+        recipes.addAll(items);
+
     }
 
     class ViewHolder extends RecyclerView.ViewHolder {

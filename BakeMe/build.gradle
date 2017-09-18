@@ -29,7 +29,7 @@ ext {
     // App dependencies
     supportLibraryVersion = '26.0.0'
     junitVersion = '4.12'
-    espressoVersion = '2.2.2'
+    espressoVersion = '3.0.1'
     mockitoVersion = '1.10.19'
     retrofitVersion = '2.2.0'
     daggerVersion = '2.11'

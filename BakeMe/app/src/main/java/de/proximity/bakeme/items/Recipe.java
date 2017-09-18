@@ -14,6 +14,14 @@ public class Recipe {
     public int servings;
     public String image;
 
+    public Recipe(String name) {
+        this.name = name;
+    }
+
+    public Recipe() {
+
+    }
+
     public String getIngredientsAsString() {
         StringBuilder builder = new StringBuilder();
         for (Ingredient i : ingredients) {

@@ -15,6 +15,7 @@ public class RecipeDetailsViewModel {
     public ObservableBoolean showIngredients = new ObservableBoolean(true);
 
     public void setShowIngredients(boolean show) {
+       // if (recipe.get().ingredients == null || recipe.get().ingredients.isEmpty()) show = false;
         this.showIngredients.set(show);
     }
 

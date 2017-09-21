@@ -23,6 +23,7 @@ public class Recipe {
     }
 
     public String getIngredientsAsString() {
+        if (ingredients == null) return "";
         StringBuilder builder = new StringBuilder();
         for (Ingredient i : ingredients) {
             builder.append(i.getQuantity()).append(" ").append(i.measure).append(" ").append(i.ingredient).append("\n");

@@ -41,7 +41,6 @@ public class StepFragment extends Fragment {
     private MediaSource mediaSource;
 
     public StepFragment() {
-        // Required empty public constructor
     }
 
     public static StepFragment newInstance(Step step) {
@@ -71,7 +70,8 @@ public class StepFragment extends Fragment {
         super.onCreate(savedInstanceState);
         if (getArguments() != null) {
             step = Parcels.unwrap(getArguments().getParcelable(EXTRA_STEP));
-            setupPlayer();
+            if (step.videoURL != null)
+                setupPlayer();
         }
     }
 

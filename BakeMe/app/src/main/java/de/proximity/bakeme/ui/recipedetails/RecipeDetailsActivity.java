@@ -22,7 +22,7 @@ public class RecipeDetailsActivity extends AppCompatActivity implements Injectab
     @Inject
     RecipeDetailsViewModel model;
     private Recipe recipe;
-    private static final String EXTRA_RECIPE = "EXTRA_RECIPE";
+    static final String EXTRA_RECIPE = "EXTRA_RECIPE";
     private boolean isTwoPane = false;
 
     @Override

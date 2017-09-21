@@ -21,7 +21,7 @@ public class StepListAdapter extends RecyclerView.Adapter<StepListAdapter.ViewHo
 
     public StepListAdapter(StepCallback callback, List<Step> steps) {
         this.callback = callback;
-        this.steps = steps;
+        this.steps = steps != null ? steps : new ArrayList<Step>();
     }
 
     public interface StepCallback {

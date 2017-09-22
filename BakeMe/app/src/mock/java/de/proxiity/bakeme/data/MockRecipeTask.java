@@ -22,6 +22,7 @@ public class MockRecipeTask implements RecipeTask {
             ingredients.add(new Ingredient("honey", 200, "g"));
             ingredients.add(new Ingredient("egg", 2, ""));
             ingredients.add(new Ingredient("flour", 100, "g"));
+            honeycomb.image = "https://vignette.wikia.nocookie.net/hayday/images/7/7c/Honeycomb.png/revision/latest?cb=20150711215117";
             honeycomb.ingredients = ingredients;
             List<Step> steps = new ArrayList<>();
             steps.add(new Step(1, "Mix flour with egg", "Mix flour with egg in a bowl"));

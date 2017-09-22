@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools">
 
     <data>
@@ -9,21 +10,35 @@
             type="de.proximity.bakeme.items.Recipe" />
     </data>
 
-    <TextView
-        android:id="@+id/tvRecipeTitle"
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_margin="@dimen/recipe_label_margin"
         android:background="@color/title_bg"
-        android:gravity="center_horizontal"
-        android:padding="@dimen/recipe_label_margin"
-        android:shadowColor="@color/icons"
-        android:shadowDx="5.0"
-        android:shadowDy="5.0"
-        android:shadowRadius="1.0"
-        android:text="@{recipe.name}"
-        android:textColor="@color/secondary_text"
-        android:textSize="@dimen/recipe_title_size"
-        android:textStyle="bold"
-        tools:text="Recipe title" />
+        android:gravity="center"
+        android:orientation="horizontal">
+
+        <ImageView
+            android:id="@+id/ivRecipeImage"
+            android:layout_width="@dimen/recipe_img_size"
+            android:layout_height="@dimen/recipe_img_size"
+            app:imageUrl="@{recipe.image}"
+            app:visibleGone="@{recipe.showImage}" />
+
+        <TextView
+            android:id="@+id/tvRecipeTitle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/recipe_label_margin"
+            android:gravity="center_horizontal"
+            android:shadowColor="@color/icons"
+            android:shadowDx="5.0"
+            android:shadowDy="5.0"
+            android:shadowRadius="1.0"
+            android:text="@{recipe.name}"
+            android:textColor="@color/secondary_text"
+            android:textSize="@dimen/recipe_title_size"
+            android:textStyle="bold"
+            tools:text="Recipe title" />
+    </LinearLayout>
 </layout>

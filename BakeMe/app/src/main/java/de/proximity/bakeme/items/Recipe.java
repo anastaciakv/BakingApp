@@ -22,6 +22,10 @@ public class Recipe {
 
     }
 
+    public boolean showImage() {
+        return image != null && !image.isEmpty();
+    }
+
     public String getIngredientsAsString() {
         if (ingredients == null) return "";
         StringBuilder builder = new StringBuilder();

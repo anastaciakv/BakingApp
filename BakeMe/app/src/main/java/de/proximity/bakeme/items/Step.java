@@ -8,6 +8,7 @@ public class Step {
     public String shortDescription;
     public String description;
     public String videoURL;
+    public String thumbnailURL;
 
     public Step(int id, String shortDescription, String description) {
         this.id = id;
@@ -15,9 +16,11 @@ public class Step {
         this.description = description;
     }
 
-    public String thumbnailURL;
-
     public Step() {
+    }
+
+    public boolean showThumbnail() {
+        return thumbnailURL != null && !thumbnailURL.isEmpty();
     }
 
     public boolean hasVideo() {

@@ -46,14 +46,13 @@ public class RecipeListActivityTest implements Injectable {
 
     @Test
     public void recipeImageVisibleIfPresent() throws Exception {
-        onView(withRecyclerView(R.id.rvRecipeList).atPosition(0))
+        onView(RecyclerViewMatcher.withRecyclerView(R.id.rvRecipeList).atPosition(0))
                 .check(matches(hasDescendant(allOf(withId(R.id.ivRecipeImage), isDisplayed()))));
-
     }
 
     @Test
     public void recipeImageGoneIfAbsent() throws Exception {
-        onView(withRecyclerView(R.id.rvRecipeList).atPosition(1))
+        onView(RecyclerViewMatcher.withRecyclerView(R.id.rvRecipeList).atPosition(1))
                 .check(matches(hasDescendant(allOf(withId(R.id.ivRecipeImage), withEffectiveVisibility(ViewMatchers.Visibility.GONE)))));
     }
 
@@ -61,9 +60,5 @@ public class RecipeListActivityTest implements Injectable {
     public void whenClickRecipe_thenOpenDetails() throws Exception {
         onView(withId(R.id.rvRecipeList)).perform(RecyclerViewActions.actionOnItemAtPosition(0, click()));
         onView(withId(R.id.tvIngredients)).check(matches(withText(task.getRecipes().get(0).getIngredientsAsString())));
-    }
-
-    public static RecyclerViewMatcher withRecyclerView(final int recyclerViewId) {
-        return new RecyclerViewMatcher(recyclerViewId);
     }
 }

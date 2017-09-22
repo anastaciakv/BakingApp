@@ -28,6 +28,7 @@ public class MockRecipeTask implements RecipeTask {
             steps.add(new Step(1, "Mix flour with egg", "Mix flour with egg in a bowl"));
             Step step2 = new Step(2, "Add honey", "");
             step2.videoURL = "https://www.youtube.com/watch?v=gayDlEYeaKw";
+            step2.thumbnailURL = "http://tasteasianfood.com/wp-content/uploads/2015/07/CK-2.png";
             steps.add(step2);
 
             steps.add(new Step(2, "Bake", "Preheat the oven to 200. Bake in a form for 20 minutes"));

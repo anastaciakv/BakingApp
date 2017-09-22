@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools">
 
     <data>
@@ -9,14 +10,29 @@
             type="de.proximity.bakeme.items.Step" />
     </data>
 
-    <TextView
-        android:id="@+id/tvShortDescription"
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:padding="@dimen/step_item_margin"
-        android:text="@{step.shortDescription}"
-        android:textSize="@dimen/ingredients_text_size"
-        tools:text="Step short description">
+        android:gravity="center_vertical"
+        android:orientation="horizontal">
 
-    </TextView>
+        <ImageView
+            android:id="@+id/ivStepImage"
+            android:layout_width="@dimen/step_img_size"
+            android:layout_height="@dimen/step_img_size"
+            android:layout_marginLeft="@dimen/step_img_margin"
+            app:imageUrl="@{step.thumbnailURL}"
+            app:visibleGone="@{step.showThumbnail}" />
+
+
+        <TextView
+            android:id="@+id/tvShortDescription"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:padding="@dimen/step_item_margin"
+            android:text="@{step.shortDescription}"
+            android:textSize="@dimen/ingredients_text_size"
+            tools:text="Step short description"></TextView>
+    </LinearLayout>
+
 </layout>

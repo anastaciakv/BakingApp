@@ -18,6 +18,7 @@ import org.parceler.Parcels;
 
 import de.proxiity.bakeme.data.MockRecipeTask;
 import de.proximity.bakeme.R;
+import de.proximity.bakeme.util.RecyclerViewMatcher;
 
 import static android.support.test.espresso.Espresso.onView;
 import static android.support.test.espresso.action.ViewActions.click;
@@ -76,6 +77,18 @@ public class RecipeDetailsActivityTest {
     public void given_videoUrlForStep2_when_clickOnStep2_playerShown() throws Exception {
         onView(withId(R.id.rvStepList)).perform(RecyclerViewActions.actionOnItemAtPosition(1, click()));
         onView(allOf(instanceOf(SimpleExoPlayerView.class), withId(R.id.playerView))).check(matches(isDisplayed()));
+    }
+
+    @Test
+    public void stepImageVisibleIfPresent() throws Exception {
+        onView(RecyclerViewMatcher.withRecyclerView(R.id.rvStepList).atPosition(1))
+                .check(matches(hasDescendant(allOf(withId(R.id.ivStepImage), isDisplayed()))));
+    }
+
+    @Test
+    public void stepImageGoneIfAbsent() throws Exception {
+        onView(RecyclerViewMatcher.withRecyclerView(R.id.rvStepList).atPosition(0))
+                .check(matches(hasDescendant(allOf(withId(R.id.ivStepImage), withEffectiveVisibility(ViewMatchers.Visibility.GONE)))));
     }
 
 }

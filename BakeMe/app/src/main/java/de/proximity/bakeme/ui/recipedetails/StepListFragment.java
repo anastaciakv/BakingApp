@@ -3,6 +3,7 @@ package de.proximity.bakeme.ui.recipedetails;
 import android.content.Context;
 import android.databinding.DataBindingUtil;
 import android.os.Bundle;
+import android.os.Parcelable;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
@@ -16,15 +17,23 @@ import de.proximity.bakeme.databinding.FragmentStepListBinding;
 import de.proximity.bakeme.di.Injectable;
 
 public class StepListFragment extends Fragment implements Injectable {
+    private static final String LIST_STATE_KEY = "STEP_LIST_STATE";
+    private static final String KEY_SHOW_INGREDIENTS = "KEY_SHOW_INGREDIENTS";
+
     @Inject
     RecipeDetailsViewModel model;
 
     private StepListAdapter.StepCallback callback;
     private FragmentStepListBinding binding;
     private StepListAdapter adapter;
+    private Parcelable mListState;
 
 
     public StepListFragment() {
+    }
+
+    public static StepListFragment newInstance() {
+        return new StepListFragment();
     }
 
     @Override
@@ -40,12 +49,29 @@ public class StepListFragment extends Fragment implements Injectable {
                 model.setShowIngredients(binding.cardView.getVisibility() == View.GONE);
             }
         });
+        if (savedInstanceState != null) {
+            mListState = savedInstanceState.getParcelable(LIST_STATE_KEY);
+            model.setShowIngredients(savedInstanceState.getBoolean(KEY_SHOW_INGREDIENTS, true));
+        }
+    }
+
+    @Override
+    public void onSaveInstanceState(Bundle outState) {
+        super.onSaveInstanceState(outState);
+        mListState = binding.rvStepList.getLayoutManager().onSaveInstanceState();
+        outState.putParcelable(LIST_STATE_KEY, mListState);
+        outState.putBoolean(KEY_SHOW_INGREDIENTS, model.showIngredients.get());
     }
 
     @Override
     public void onResume() {
         super.onResume();
-        model.setShowIngredients(true);
+        if (mListState != null) {
+            binding.rvStepList.setFocusable(true);
+            binding.rvStepList.getLayoutManager().onRestoreInstanceState(mListState);
+        } else {
+            binding.rvStepList.setFocusable(false);
+        }
     }
 
     @Override

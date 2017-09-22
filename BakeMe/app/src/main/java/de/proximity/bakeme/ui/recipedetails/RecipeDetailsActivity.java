@@ -23,7 +23,7 @@ public class RecipeDetailsActivity extends AppCompatActivity implements Injectab
     RecipeDetailsViewModel model;
     private Recipe recipe;
     static final String EXTRA_RECIPE = "EXTRA_RECIPE";
-    private boolean isTwoPane = false;
+    private boolean isTwoPane;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -33,10 +33,9 @@ public class RecipeDetailsActivity extends AppCompatActivity implements Injectab
             recipe = Parcels.unwrap(getIntent().getExtras().getParcelable(EXTRA_RECIPE));
             model.setRecipe(recipe);
         }
-        if (findViewById(R.id.container) != null) {
-            isTwoPane = true;
-        } else {
-            changeFragment(R.id.masterListContainer, new StepListFragment(), true, false);
+        isTwoPane = getResources().getBoolean(R.bool.isTwoPane);
+        if (!isTwoPane) {
+            changeFragment(R.id.masterListContainer, StepListFragment.newInstance(), true, false);
         }
     }
 
